@@ -14,8 +14,8 @@
     "url": "https://github.com/miguelmota/getprop"
   },
   "keywords": [
-    "range",
-    "date"
+    "property",
+    "object"
   ],
   "author": "Miguel Mota <hello@miguelmota.com> (http://www.miguelmota.com/)",
   "license": "MIT",
