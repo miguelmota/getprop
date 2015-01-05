@@ -22,7 +22,9 @@ var obj = {
     }
   },
   'key.with.dots': 'hello',
-  '"key.with.quotes"': 'hi'
+  '"key.with.quotes"': {
+    greet: 'hi'
+  }
 };
 
 getProp(obj, 'foo') // 'bar'
@@ -31,7 +33,7 @@ getProp(obj, 'qux.zee.boop') // 'yo'
 getProp(obj, 'qux.zee.peep.0') // 55
 getProp(obj, 'qux.zee.peep.1') // 'zonk'
 getProp(obj, 'qux[key.with.dots]') // 'hello'
-getProp(obj, 'qux["key.with.quotes"]') // 'hi'
+getProp(obj, 'qux["key.with.quotes"].greet') // 'hi'
 ```
 
 # License
