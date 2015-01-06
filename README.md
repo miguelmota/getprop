@@ -31,6 +31,10 @@ var value = getProp(obj, 'qux.zee.peep.2.__data', 'default value');
 npm install get-prop
 ```
 
+```bash
+bower install getprop
+```
+
 # Usage
 
 ```javascript
