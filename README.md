@@ -15,7 +15,7 @@ if (
   obj.qux.zee.peep[2] &&
   obj.qux.zee.peep[2].__data) {
 
-  value = obj.qux.zee.peep[1].__data;
+  value = obj.qux.zee.peep[2].__data;
 }
 ```
 
