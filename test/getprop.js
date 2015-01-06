@@ -2,14 +2,16 @@ var test = require('tape');
 var getProp = require('../getprop');
 
 test('getProp', function (t) {
-  t.plan(10);
+  t.plan(11);
 
   var obj = {
     foo: 'bar',
     qux: {
       zee: {
         boop: 'yo',
-        peep: [55,'zonk']
+        peep: [55,'zonk', {
+          __data: 'pow'
+        }],
       },
       'key.with.dots': 'hello',
       '"key.with.quotes"': {
@@ -25,6 +27,7 @@ test('getProp', function (t) {
   t.equal(getProp(obj, 'qux.zee.peep.1'), 'zonk');
   t.equal(getProp(obj, 'qux[key.with.dots]'), 'hello');
   t.equal(getProp(obj, 'qux["key.with.quotes"].greet'), 'hi');
+  t.equal(getProp(obj, 'qux.zee.peep.2.__data'), 'pow');
   t.equal(getProp(obj, ''), undefined);
   t.equal(getProp(obj, {}), undefined);
   t.equal(getProp(obj, 3), undefined);

@@ -4,7 +4,7 @@
     if (!o || !s) return;
     if (!(typeof o === 'object' || o instanceof Object)) return;
     if (!(typeof s === 'string' || s instanceof String)) return;
-    var props = s.match(/(\[(.*?)\]|[0-9a-zA-Z]+)/gi).map(function(m) { return m.replace(/[\[\]]/gi,''); });
+    var props = s.match(/(\[(.*?)\]|[0-9a-zA-Z_]+)/gi).map(function(m) { return m.replace(/[\[\]]/gi,''); });
 
     var last = props[props.length - 1],
         i = 0,

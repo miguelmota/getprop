@@ -18,7 +18,9 @@ var obj = {
   qux: {
     zee: {
       boop: 'yo',
-      peep: [55,'zonk']
+      peep: [55,'zonk', {
+        __data: 'pow'
+      }],
     }
   },
   'key.with.dots': 'hello',
@@ -34,6 +36,7 @@ getProp(obj, 'qux.zee.peep.0') // 55
 getProp(obj, 'qux.zee.peep.1') // 'zonk'
 getProp(obj, 'qux[key.with.dots]') // 'hello'
 getProp(obj, 'qux["key.with.quotes"].greet') // 'hi'
+getProp(obj, 'qux.zee.peep.2.__data') // 'pow'
 ```
 
 # License
