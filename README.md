@@ -1,6 +1,6 @@
 # getprop
 
-Get a property from object, the easy way.
+Get a property from nested object, the easy way.
 
 Old fashion way:
 
