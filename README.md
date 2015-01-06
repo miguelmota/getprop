@@ -2,7 +2,7 @@
 
 Get a property from object the easy way.
 
-Turn:
+Old fashion way:
 
 ```javascript
 var value = 'default value';
@@ -19,7 +19,7 @@ if (
 }
 ```
 
-into:
+with getProp:
 
 ```javascript
 var value = getProp(obj, 'qux.zee.peep.2.__data', 'default value');
