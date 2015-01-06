@@ -1,17 +1,17 @@
 (function(root) {
 
-  function getProp(o, s) {
+  function getProp(o, s, d) {
     if (!o || !s) return;
     if (!(typeof o === 'object' || o instanceof Object)) return;
     if (!(typeof s === 'string' || s instanceof String)) return;
-    var props = s.match(/(\[(.*?)\]|[0-9a-zA-Z_]+)/gi).map(function(m) { return m.replace(/[\[\]]/gi,''); });
+    var props = s.match(/(\[(.*?)\]|[0-9a-zA-Z_$]+)/gi).map(function(m) { return m.replace(/[\[\]]/gi,''); });
 
     var last = props[props.length - 1],
         i = 0,
         head = o;
 
     for (i = 0; i < props.length; i += 1) {
-      if (!head[props[i]]) return;
+      if (!head[props[i]]) d;
       head = head[props[i]];
       if (typeof head !== 'undefined') {
         if (props[i] === last) {
@@ -19,6 +19,7 @@
         }
       }
     }
+    return d;
   }
 
   if (typeof exports !== 'undefined') {

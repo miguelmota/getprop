@@ -2,7 +2,7 @@ var test = require('tape');
 var getProp = require('../getprop');
 
 test('getProp', function (t) {
-  t.plan(11);
+  t.plan(14);
 
   var obj = {
     foo: 'bar',
@@ -16,18 +16,22 @@ test('getProp', function (t) {
       'key.with.dots': 'hello',
       '"key.with.quotes"': {
         greet: 'hi'
-      }
+      },
+      $el: 'element'
     },
   };
 
   t.equal(getProp(obj, 'foo'), 'bar');
   t.equal(getProp(obj, 'deedee'), undefined);
+  t.equal(getProp(obj, 'deedee', "I'm default value"), "I'm default value");
   t.equal(getProp(obj, 'qux.zee.boop'), 'yo');
   t.equal(getProp(obj, 'qux.zee.peep.0'), 55);
   t.equal(getProp(obj, 'qux.zee.peep.1'), 'zonk');
+  t.equal(getProp(obj, 'qux.zee.peep[1]'), 'zonk');
   t.equal(getProp(obj, 'qux[key.with.dots]'), 'hello');
   t.equal(getProp(obj, 'qux["key.with.quotes"].greet'), 'hi');
   t.equal(getProp(obj, 'qux.zee.peep.2.__data'), 'pow');
+  t.equal(getProp(obj, 'qux.$el'), 'element');
   t.equal(getProp(obj, ''), undefined);
   t.equal(getProp(obj, {}), undefined);
   t.equal(getProp(obj, 3), undefined);

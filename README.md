@@ -21,22 +21,26 @@ var obj = {
       peep: [55,'zonk', {
         __data: 'pow'
       }],
-    }
+    },
+    'key.with.dots': 'hello',
+    '"key.with.quotes"': {
+      greet: 'hi'
+    },
+    $el: 'element'
   },
-  'key.with.dots': 'hello',
-  '"key.with.quotes"': {
-    greet: 'hi'
-  }
 };
 
 getProp(obj, 'foo') // 'bar'
 getProp(obj, 'deedee') // undefined
+getProp(obj, 'deedee', "I'm default value") // "I'm default value"
 getProp(obj, 'qux.zee.boop') // 'yo'
 getProp(obj, 'qux.zee.peep.0') // 55
 getProp(obj, 'qux.zee.peep.1') // 'zonk'
+getProp(obj, 'qux.zee.peep[1]') // 'zonk'
 getProp(obj, 'qux[key.with.dots]') // 'hello'
 getProp(obj, 'qux["key.with.quotes"].greet') // 'hi'
 getProp(obj, 'qux.zee.peep.2.__data') // 'pow'
+getProp(obj, 'qux.$el') // 'element'
 ```
 
 # License
