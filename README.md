@@ -44,7 +44,7 @@ var obj = {
   foo: 'bar',
   qux: {
     zee: {
-      boop: 'yo',
+      boop: 4,
       peep: [55,'zonk', {
         __data: 'pow'
       }],
