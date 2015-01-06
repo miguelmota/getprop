@@ -2,19 +2,20 @@
 
   function getProp(o, s, d) {
     if (!o || !s) return;
-    if (!(typeof o === 'object' || o instanceof Object)) return;
-    if (!(typeof s === 'string' || s instanceof String)) return;
+    if (!(typeof o === 'object' || o instanceof Object)) return d;
+    if (!(typeof s === 'string' || s instanceof String)) return d;
     var props = s.match(/(\[(.*?)\]|[0-9a-zA-Z_$]+)/gi).map(function(m) { return m.replace(/[\[\]]/gi,''); });
 
-    var last = props[props.length - 1],
+    var len = props.length,
+        last = props[len - 1],
         i = 0,
         head = o;
 
-    for (i = 0; i < props.length; i += 1) {
+    for (i = 0; i < len; i += 1) {
       if (!head[props[i]]) d;
       head = head[props[i]];
       if (typeof head !== 'undefined') {
-        if (props[i] === last) {
+        if (props[i] === last && i === len - 1) {
           return head;
         }
       }
