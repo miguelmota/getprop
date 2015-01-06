@@ -43,7 +43,7 @@ test('getProp', function (t) {
   t.equal(getProp(obj, {}), undefined);
   t.equal(getProp(obj, 3), undefined);
   t.equal(getProp('foo.bar', ''), undefined);
-  t.equal(getProp(obj, '[foo.bar]'), undefined);
+  t.equal(getProp(obj, '[foo.bar]'), 'noob');
 
   // oldschool
   var value = 'default value';
