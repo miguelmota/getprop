@@ -12,7 +12,7 @@
         head = o;
 
     for (i = 0; i < len; i += 1) {
-      if (!head[props[i]]) d;
+      if (typeof head[props[i]] === 'undefined') return d;
       head = head[props[i]];
       if (typeof head !== 'undefined') {
         if (props[i] === last && i === len - 1) {

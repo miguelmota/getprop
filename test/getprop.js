@@ -2,7 +2,7 @@ var test = require('tape');
 var getProp = require('../getprop');
 
 test('getProp', function (t) {
-  t.plan(20);
+  t.plan(21);
 
   var obj = {
     foo: 'bar',
@@ -45,6 +45,7 @@ test('getProp', function (t) {
   t.equal(getProp(obj, ''), undefined);
   t.equal(getProp(obj, {}), undefined);
   t.equal(getProp(obj, 3), undefined);
+  t.equal(getProp(obj, 'nah.1.0'), undefined);
   t.equal(getProp('foo.bar', ''), undefined);
   t.equal(getProp(obj, '[foo.bar]'), 'noob');
 
