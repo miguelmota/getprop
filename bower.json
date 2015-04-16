@@ -1,7 +1,7 @@
 {
   "name": "getprop",
   "main": "getprop.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/miguelmota/getprop",
   "authors": [
     "Miguel Mota <miguelmota2@gmail.com>"

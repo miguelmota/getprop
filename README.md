@@ -55,7 +55,8 @@ var obj = {
     },
     $el: 'element'
   },
-  'foo.bar': 'noob'
+  'foo.bar': 'noob',
+  qax: null
 };
 
 getProp(obj, 'foo') // 'bar'
@@ -71,6 +72,7 @@ getProp(obj, 'qux.zee.peep.2') // {__data: 'pow'}
 getProp(obj, 'qux.zee.peep.2.__data') // 'pow'
 getProp(obj, 'qux.$el') // 'element'
 getProp(obj, '[foo.bar]') // 'noob'
+getProp(obj, 'qux.qux') // undefined
 ```
 
 # License
