@@ -2,7 +2,7 @@ var test = require('tape');
 var getProp = require('../getprop');
 
 test('getProp', function (t) {
-  t.plan(22);
+  t.plan(23);
 
   var obj = {
     foo: 'bar',
@@ -43,6 +43,7 @@ test('getProp', function (t) {
   t.equal(getProp(obj, 'qux.zee.peep.2.__data'), 'pow');
   t.equal(getProp(obj, 'qux.$el'), 'element');
   t.equal(getProp(obj, 'bar.baz.bar'), 9);
+  t.equal(getProp(obj, 'bar.baz.bar.nope'), undefined);
   t.equal(getProp(obj, ''), undefined);
   t.equal(getProp(obj, {}), undefined);
   t.equal(getProp(obj, 3), undefined);
