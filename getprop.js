@@ -1,10 +1,14 @@
 (function(root) {
 
   function getProp(o, s, d) {
-    if (!o || !s) return;
-    if (!(typeof o === 'object' || o instanceof Object)) return d;
+    if (arguments.length === 1 && (typeof o === 'object' || o instanceof Object)) {
+      return function(s, d) {
+        return getProp(o, s, d);
+      };
+    }
+    if (!(typeof o === 'object' || o instanceof Object) || o === null) return d;
     if (!(typeof s === 'string' || s instanceof String)) return d;
-    var props = s.match(/(\[(.*?)\]|[0-9a-zA-Z_$]+)/gi).map(function(m) {
+    var props = (s.match(/(\[(.*?)\]|[0-9a-zA-Z_$]+)/gi)||[]).map(function(m) {
       return m.replace(/[\[\]]/gi,'');
     });
 

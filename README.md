@@ -2,7 +2,7 @@
 
 Get a property from nested object, the easy way.
 
-Old fashion way:
+Antiquated way:
 
 ```javascript
 var value = 'default value';
@@ -73,6 +73,17 @@ getProp(obj, 'qux.zee.peep.2.__data') // 'pow'
 getProp(obj, 'qux.$el') // 'element'
 getProp(obj, '[foo.bar]') // 'noob'
 getProp(obj, 'qux.qux') // undefined
+```
+
+Partially applied:
+
+```
+var objProp = getProp(obj);
+
+objProp('foo') //  'bar'
+objProp('[foo.bar]') // 'noob'
+objProp('qux') // 'noob'
+objProp('yo', 'wut') // 'wut'
 ```
 
 # License
