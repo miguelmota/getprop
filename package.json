@@ -1,6 +1,6 @@
 {
   "name": "get-prop",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Get a property from object",
   "main": "getprop.js",
   "directories": {
@@ -23,7 +23,7 @@
     "url": "https://github.com/miguelmota/getprop/issues"
   },
   "homepage": "https://github.com/miguelmota/getprop",
-  "dependencies": {
+  "devDependencies": {
     "tape": "^3.0.3"
   }
 }
