@@ -59,6 +59,22 @@ var obj = {
   qax: null
 };
 
+// array for path (recommended)
+getProp(obj, ['foo']) // 'bar'
+getProp(obj, ['deedee']) // undefined
+getProp(obj, ['deedee'], "I'm default value") // "I'm default value"
+getProp(obj, ['qux', 'zee', 'boop']) // 'yo'
+getProp(obj, ['qux', 'zee', 'peep', 0]) // 55
+getProp(obj, ['qux', 'zee', 'peep', 1]) // 'zonk'
+getProp(obj, ['qux', 'key.with.dots']) // 'hello'
+getProp(obj, ['qux', '"key.with.quotes"', 'greet']) // 'hi'
+getProp(obj, ['qux', 'zee', 'peep', 2]) // {__data: 'pow'}
+getProp(obj, ['qux', 'zee', 'peep', 2, '__data']) // 'pow'
+getProp(obj, ['qux', '$el']) // 'element'
+getProp(obj, ['foo.bar']) // 'noob'
+getProp(obj, ['qux', 'qux']) // undefined
+
+// string for path
 getProp(obj, 'foo') // 'bar'
 getProp(obj, 'deedee') // undefined
 getProp(obj, 'deedee', "I'm default value") // "I'm default value"

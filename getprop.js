@@ -1,35 +1,49 @@
 (function(root) {
 
-  function getProp(o, s, d) {
-    if (arguments.length === 1 && (typeof o === 'object' || o instanceof Object)) {
-      return function(s, d) {
-        return getProp(o, s, d);
+  function getProp(obj, path, defaultValue) {
+    if (arguments.length === 1 && (typeof obj === 'object' || obj instanceof Object)) {
+      return function(path, defaultValue) {
+        return getProp(obj, path, defaultValue);
       };
     }
-    if (!(typeof o === 'object' || o instanceof Object) || o === null) return d;
-    if (!(typeof s === 'string' || s instanceof String)) return d;
-    var props = (s.match(/(\[(.*?)\]|[0-9a-zA-Z_$]+)/gi)||[]).map(function(m) {
-      return m.replace(/[\[\]]/gi,'');
-    });
 
-    var len = props.length,
-        last = props[len - 1],
-        i = 0,
-        head = o;
+    if (!(typeof obj === 'object' || obj instanceof Object) || obj === null) {
+      return defaultValue;
+    }
 
-    for (i = 0; i < len; i += 1) {
+    var props = [];
+
+    if (Array.isArray(path)) {
+      props = path;
+    } else {
+      if (!(typeof path === 'string' || path instanceof String)) {
+        return defaultValue;
+      }
+
+      props = (path.match(/(\[(.*?)\]|[0-9a-zA-Z_$]+)/gi)||props).map(function(match) {
+        return match.replace(/[\[\]]/gi,'');
+      });
+    }
+
+
+    var size = props.length;
+    var last = props[size - 1];
+    var head = obj;
+
+    for (var i = 0; i < size; i += 1) {
       if (typeof head[props[i]] === 'undefined' ||
           head[props[i]] === null) {
-        return d;
+        return defaultValue;
       }
       head = head[props[i]];
       if (typeof head !== 'undefined') {
-        if (props[i] === last && i === len - 1) {
+        if (props[i] === last && i === size - 1) {
           return head;
         }
       }
     }
-    return d;
+
+    return defaultValue;
   }
 
   if (typeof exports !== 'undefined') {
