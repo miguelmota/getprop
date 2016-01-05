@@ -102,6 +102,8 @@ objProp(['qux']) // 'noob'
 objProp(['yo'], 'wut') // 'wut'
 ```
 
+For a boolean version of this, check out the module [hasprop](https://github.com/miguelmota/hasprop).
+
 # License
 
 MIT
