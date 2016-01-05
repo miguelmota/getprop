@@ -22,7 +22,7 @@ if (
 with getProp:
 
 ```javascript
-var value = getProp(obj, 'qux.zee.peep.2.__data', 'default value');
+var value = getProp(obj, ['qux', 'zee', 'peep', 2, '__data']);
 ```
 
 # Install
