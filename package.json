@@ -1,6 +1,6 @@
 {
   "name": "get-prop",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Get a property from object",
   "main": "getprop.js",
   "directories": {

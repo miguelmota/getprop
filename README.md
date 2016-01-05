@@ -96,10 +96,10 @@ Partially applied:
 ```
 var objProp = getProp(obj);
 
-objProp('foo') //  'bar'
-objProp('[foo.bar]') // 'noob'
-objProp('qux') // 'noob'
-objProp('yo', 'wut') // 'wut'
+objProp(['foo']) //  'bar'
+objProp('[foo.bar']) // 'noob'
+objProp(['qux']) // 'noob'
+objProp(['yo'], 'wut') // 'wut'
 ```
 
 # License
